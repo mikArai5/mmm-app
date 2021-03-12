@@ -1,24 +1,42 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| nickname           | string | null: false               |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+- has_one :details
+- has_one :wishlist
 
-* System dependencies
 
-* Configuration
+## details テーブル
+| Column              | Type            | Options                        |
+| ------------------- | --------------- | ------------------------------ |
+| item_name           | string          | null: false                    |
+| memo                | text            |                                |
+| incomes_or_expenses | integer         | null: false                    |
+| category_id         | integer         | default: "", null: false       |
+| day                 | datetime        | null: false                    |
+| price               | integer         | null: false                    |
+| payment_methods     | integer         | null: false                    |
+| number_of_time      | integer         | null: false                    |
+| per_time            | integer         | null: false                    |
+| user                | references      | null: false, foreign_key: true |
 
-* Database creation
+### Association
+- belongs_to :user
 
-* Database initialization
+## wishlists テーブル
+| Column        | Type            | Options                        |
+| ------------- | --------------- | ------------------------------ |
+| name          | string          | null: false                    |
+| price         | integer         | null: false,                   |
+| memo          | text            |                                |
 
-* How to run the test suite
+### Association
+- belongs_to :user
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
