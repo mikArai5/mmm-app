@@ -1,0 +1,25 @@
+<%= form_with(model: @wishlist, local: true) do |f|%>
+  <div class="field">
+    <%= f.label :name, "行きたいところ欲しいもの" %><br />
+    <%= f.text_field :name, id:"wishlist_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "プライス" %><br />
+    <%= f.text_field :price, class: :form__text, id:"wishlist_price" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo, "メモ" %><br />
+    <%= f.text_area :memo, class: :form__text, id:"wishlist_memo" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "画像" %><br />
+    <%= f.file_field :image, id:"wishlist_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>

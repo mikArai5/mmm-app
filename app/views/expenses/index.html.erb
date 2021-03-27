@@ -7,9 +7,11 @@
         <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
       </div>
     <% end %>
+      <%= link_to image_tag("wishlist-icon.png", class: :wish_logo), wishlists_path, method: :get %>
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
-      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
     </div>
   </div>
+
+
 </main>
