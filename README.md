@@ -10,7 +10,7 @@
 
 ### Association
 - has_one :details
-- has_one :wishlist
+- has_many :wishlist
 
 
 ## details テーブル
