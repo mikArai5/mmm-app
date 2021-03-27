@@ -1,0 +1,10 @@
+<main class="main">
+  <div class="inner">
+    <div class="post_btn">
+      <%= link_to image_tag("y-logo.png", class: :logo), new_wishlist_path, method: :get %>
+    </div>
+    <div class="card__wrapper">
+      <%= render partial: "wishlists/wishlist" , collection: @wishlists %>
+    </div>
+  </div>
+</main>
