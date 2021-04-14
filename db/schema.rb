@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_14_190945) do
+ActiveRecord::Schema.define(version: 2021_03_31_071838) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,6 +31,31 @@ ActiveRecord::Schema.define(version: 2021_03_14_190945) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "details", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "item_name", null: false
+    t.text "memo"
+    t.integer "incomes_or_expenses_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "day", null: false
+    t.integer "price", null: false
+    t.integer "payment_methods_id", null: false
+    t.integer "number_of_time_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_details_on_user_id"
+  end
+
+  create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "nickname"
+    t.integer "money"
+    t.string "comment"
+    t.datetime "start_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,4 +82,6 @@ ActiveRecord::Schema.define(version: 2021_03_14_190945) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "details", "users"
+  add_foreign_key "wishlists", "users"
 end

@@ -7,11 +7,34 @@
         <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
       </div>
     <% end %>
+
       <%= link_to image_tag("wishlist-icon.png", class: :wish_logo), wishlists_path, method: :get %>
+      <%= link_to image_tag("kiroku-icon.png", class: :wish_logo), new_detail_path, method: :get %>
+         <div>
+            <%= "収入:#{@income_total.values}" %>
+          <div>
+            <%= "支出:-#{@expense_total.values}"%>
+          </div>
+
+        <%= month_calendar events: @details do |date, details| %>
+          <%= date.day %>
+      
+          <% details.each do |detail| %>
+            <% if detail.incomes_or_expenses_id == 3 %>
+              <div>
+                <span style="color:#ff0000;"><%= "-#{detail.price.to_s(:delimited)}" %>
+              </div>
+            <% else %>
+              <div>
+              <%= detail.price.to_s(:delimited) %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
     </div>
   </div>
-
 
 </main>

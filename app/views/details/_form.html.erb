@@ -1,0 +1,46 @@
+<%= form_with(model: @detail, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :item_name, "項目" %><br />
+    <%= f.text_field :item_name, id:"item_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :memo, "メモ" %><br />
+    <%= f.text_area :memo, class: :form_text, id:"memo" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :incomes_or_expenses, "収支" %><br />
+    <%= f.collection_select(:incomes_or_expenses_id, IncomesOrExpenses.all, :id, :name, {},{class:"select-box", id:"inocomes_or_expenses"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category, "カテゴリー" %><br />
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {},{class:"select-box", id:"category"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :day, "日にち" %><br />
+    <%= f.date_field :day, id:"day" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "値段" %><br />
+    <%= f.text_field :price, id: "price"%>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_methods, "支払い方法" %><br />
+    <%= f.collection_select(:payment_methods_id, PaymentMethods.all, :id, :name, {},{class:"select-box", id:"payment_methods"}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number_of_time, "支払い回数" %><br />
+    <%= f.collection_select(:number_of_time_id, NumberOfTime.all, :id, :name, {},{class:"select-box", id:"number_of_times"}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form_btn %>
+  </div>
+<% end %>
+
