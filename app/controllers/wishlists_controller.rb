@@ -1,6 +1,7 @@
 class WishlistsController < ApplicationController
   before_action :set_wishlist, only: [:edit, :show,]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @wishlists = Wishlist.all
   end
@@ -20,6 +21,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit

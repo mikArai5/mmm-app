@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get 'expenses/index'
   root to: "expenses#index"
   resources :wishlists
-  resources :details, only: [:new, :create]
+  resources :details, only: [:new, :create, :index, :show]
+  resources :expenses
 end

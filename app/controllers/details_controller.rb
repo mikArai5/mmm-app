@@ -1,4 +1,9 @@
 class DetailsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  def index
+    @details = Detail.all
+
+  end
 
   def new
     @detail = Detail.new 

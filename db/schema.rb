@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_03_31_071838) do
     t.integer "payment_methods_id", null: false
     t.integer "number_of_time_id", null: false
     t.bigint "user_id", null: false
+    t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_details_on_user_id"
