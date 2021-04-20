@@ -19,7 +19,7 @@
 | item_name           | string          | null: false                    |
 | memo                | text            |                                |
 | incomes_or_expenses | integer         | null: false                    |
-| category_id         | integer         | default: "", null: false       |
+| category            | integer         | default: "", null: false       |
 | day                 | datetime        | null: false                    |
 | price               | integer         | null: false                    |
 | payment_methods     | integer         | null: false                    |
