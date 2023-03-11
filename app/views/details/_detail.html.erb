@@ -1,0 +1,15 @@
+<div class="card">
+  <%= link_to details_path, method: :get do %>
+    <%= image_tag wishlist.image.variant(resize: '300x300'), class: :card__img if wishlist.image.attached? %>
+  <% end %>
+  <div class="card__body">
+    <%= link_to detail.item_name, detail_path(detail.id), method: :get, class: :card__title %>
+    <p class="card__summary">
+      <%= derail.memo %>
+    </p>
+    <p class="card__summary">
+      ¥<%= derail.price %>
+    </p>
+    <%= link_to "by#{current_user.nickname}", root_path, class: :card__user %>
+  </div>
+</div>

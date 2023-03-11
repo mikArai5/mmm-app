@@ -1,0 +1,9 @@
+<main class="main">
+  <div class="inner">
+    <div style="text-align:center;">
+      <div class="card__wrapper"> 
+      <h1>IncomesAndExpenses</h1>
+        <%= pie_chart @price, library: {title: {text: "支出<br> ¥#{@sum_of_expenses.to_s(:delimited)}"}} %>
+    </div>
+  </div>
+</main>

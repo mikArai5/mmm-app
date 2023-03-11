@@ -1,0 +1,32 @@
+<main class="main">
+  <div class="inner">
+    <div class="box24">
+        <div class="wishlist__manage">
+          <%= link_to "編集する", edit_detail_path(@detail.id), method: :get, class: :wishlist__btn %>
+          <%= link_to "削除する", detail_path(@detail.id), method: :delete, class: :wishlist__btn %>
+        </div>
+
+
+      <p class="wishlist__hedding">
+        <%= @detail.item_name%>
+      </p>
+
+      <%# プロトタイプの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+
+      <%# // プロトタイプの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      
+      <div class="wishlist__body">
+        <div class="wishlist__detail">
+          <div class="detail__title"> ¥<%= @detail.price %>
+          </div>
+        </div>
+        <div class="wishlist__detail">
+          <p class="detail__title">memo</p>
+          <p class="detail__message">
+            <%= @detail.memo %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

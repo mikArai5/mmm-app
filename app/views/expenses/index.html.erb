@@ -3,34 +3,40 @@
     <%# ログインしているときは以下を表示する %>
     <% if user_signed_in? %>
       <div class="greeting">
-        <%= "こんにちは、" %>
-        <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
+        ▽<%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
       </div>
     <% end %>
+    
+    <div class="box1">
+      <div style="text-align:center;">
+          <%= link_to image_tag("wishlist-icon.png", class: :wish_logo), wishlists_path, method: :get %>
+          <%= link_to image_tag("kiroku-icon.png", class: :wish_logo), new_detail_path, method: :get %>
+          <%= link_to image_tag("ichiran-icon.png",class: :wish_logo), charts_path, method: :get %>
+      </div>
+    </div>
 
-      <%= link_to image_tag("wishlist-icon.png", class: :wish_logo), wishlists_path, method: :get %>
-      <%= link_to image_tag("kiroku-icon.png", class: :wish_logo), new_detail_path, method: :get %>
-         <div>
-            <%= "収入:#{@income_total.values}" %>
-          <div>
-            <%= "支出:-#{@expense_total.values}"%>
-          </div>
-
+            <div style="text-align:center;">
+               <%= "収入 : #{@income_total.values.to_s(:delimited) }" %>　　
+               <%= "支出 : #{@expense_total.values.to_s(:delimited)}"%>
+            </div>
+    <div>
         <%= month_calendar events: @details do |date, details| %>
           <%= date.day %>
-      
-          <% details.each do |detail| %>
-            <% if detail.incomes_or_expenses_id == 3 %>
-              <div>
-                <span style="color:#ff0000;"><%= "-#{detail.price.to_s(:delimited)}" %>
-              </div>
-            <% else %>
-              <div>
-              <%= detail.price.to_s(:delimited) %>
-              </div>
+            <% details.each do |detail| %>
+              <%= link_to detail_path(detail.id), method: :get, class: :card__summary do %>
+                <% if detail.incomes_or_expenses_id == 3 %>
+                  <div>
+                    <span style="color:#ff0000;"><%= "-#{detail.price.to_s(:delimited)}" %>
+                  </div>
+                <% else %>
+                  <div>
+                  <%= detail.price.to_s(:delimited) %>
+                  </div>
+                <% end %>
+              <% end %>
             <% end %>
-          <% end %>
         <% end %>
+      </div>
 
     <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">

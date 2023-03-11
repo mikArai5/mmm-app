@@ -246,6 +246,68 @@ a {
   text-decoration: underline;
 }
 
+.box24 {
+  position: relative;
+  padding: 0.5em 0.7em;
+  margin: 2em 0;
+  background: #e6f4ff;
+  color: #5c98d4;
+  font-weight: bold;
+}
+.box24:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 30px;
+  border: 15px solid transparent;
+  border-top: 15px solid #e6f4ff;
+  width: 0;
+  height: 0;
+}
+.box24 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.box19 {
+  position: relative;
+  padding:0.25em 1em;
+}
+.box19:before,.box19:after{ 
+  content:'';
+  width: 20px;
+  height: 30px;
+  position: absolute;
+  display: inline-block;
+}
+.box19:before{
+  border-left: solid 1px #5767bf;
+  border-top: solid 1px #5767bf;
+  top:0;
+  left: 0;
+}
+.box19:after{
+  border-right: solid 1px #5767bf;
+  border-bottom: solid 1px #5767bf;
+  bottom:0;
+  right: 0;
+}
+.box19 p {
+  margin: 0; 
+  padding: 0;
+}
+
+.box1 {
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #dcdcdc;
+}
+.box1 p {
+  margin: 0; 
+  padding: 0;
+}
+
 /* ユーザーページ */
 .user__wrapper{
   min-height: calc(100vh - 161px);
